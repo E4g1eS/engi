@@ -7,13 +7,21 @@
 #include <cassert>
 #include <GL/GLU.h>
 
+#include "obj-loader.h"
+
 //compile: g++ .\main.cpp .\SDL2.dll -o out.exe -lopengl32
 
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
+//#define SCREEN_WIDTH 640
+//#define SCREEN_HEIGHT 480
 
 int main()
 {
+    ObjLoader objLoader = ObjLoader();
+    objLoader.LoadFromFile("cube.txt");
+
+    std::cout << "Done." << std::endl;
+    
+    /*
     SDL_Window *window = SDL_CreateWindow("OpenGL Test", 100, 100, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL);
     assert(window);
     SDL_GLContext context = SDL_GL_CreateContext(window);
@@ -47,7 +55,9 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT);
 
         SDL_GL_SwapWindow(window);
+        
     }
+    */
 
     return 0;
 }
